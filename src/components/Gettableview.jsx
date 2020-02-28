@@ -3,13 +3,14 @@ import userData from "../data/users.js";
 import './Gettableview.css'
 import Pagination from './Pagination';
 import usePagination from './usePagination';
+import { useHistory } from "react-router";
 
 export default function(){
     const [users, setUsers] = useState([])
     const [sorting, setSorting] = useState({})
     const { pageSize, setPageSize, currentPage, setCurrentPage, goLeft, goRight, pages } = usePagination({pageLength: 5, totalItems:500}) 
     const [lastActiveSort, setLastActiveSort] = useState(null)
-    
+    const {push} = useHistory()
     useEffect(()=>{
         setSorting(['first_name', 'last_name', 'company_name', 'city', 'state', 'zip', 'email','web', 'id'].reduce((agg, curr)=>({...agg, [curr] : null}), {}))
     },[])
@@ -61,7 +62,7 @@ export default function(){
 
                 <tbody>
                     {users.map(({first_name, last_name, company_name, city, state, zip, email, web, id})=> 
-                    <tr key={id}>
+                    <tr key={id} onClick={e=>push(`/contacts/${id}`)}>
                         <td>{first_name} </td>
                         <td>{last_name} </td>
                         <td>{company_name} </td>

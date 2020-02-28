@@ -38,7 +38,10 @@ li.page-number.active {
 
 .App-header {
     background-color: blue;
-    color: white;
     padding: 10px 10px;
     text-align: left;
+}
+
+.App-header a{
+    color: white;
 }

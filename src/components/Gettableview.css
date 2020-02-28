@@ -6,6 +6,10 @@
     overflow: auto;
 }
 
+.user-table tr{
+    cursor: pointer;
+}
+
 .user-table td{
     height: 40px;
 }
