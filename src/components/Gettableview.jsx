@@ -15,6 +15,12 @@ class Gettableview extends Component {
         this.setState({data})
     }
 
+    onSort1(event, sortKey) {
+        const data = this.state.users;
+        data.sort((a, b) => Number(a[sortKey]) - Number(b[sortKey]));
+        this.setState({data});
+    }
+
     render() {
         const {users} = this.state;
 
@@ -27,10 +33,10 @@ class Gettableview extends Component {
                     <th onClick={e=>this.onSort(e,"company_name")}>Company Name</th>
                     <th onClick={e=>this.onSort(e,"city")}>City</th>
                     <th onClick={e=>this.onSort(e,"state")}>State</th>
-                    <th onClick={e=>this.onSort(e,"zip")}>Zip</th>
+                    <th onClick={e=>this.onSort1(e,"zip")}>Zip</th>
                     <th onClick={e=>this.onSort(e,"email")}>Email</th>
                     <th onClick={e=>this.onSort(e,"web")}>Web</th>
-                    <th onClick={e=>this.onSort(e,"id")}>Id</th>
+                    <th onClick={e=>this.onSort1(e,"id")}>Id</th>
                     </tr>
                 </thead>
 
