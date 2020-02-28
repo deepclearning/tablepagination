@@ -7,7 +7,7 @@ import usePagination from './usePagination';
 export default function(){
     const [users, setUsers] = useState([])
     const [sorting, setSorting] = useState(null)
-    const { pageSize, setPageSize, currentPage, setCurrentPage, goLeft, goRight, pages } = usePagination({pageSize: 5}) 
+    const { pageSize, setPageSize, currentPage, setCurrentPage, goLeft, goRight, pages } = usePagination({pageLength: 5, totalItems:500}) 
     
     useEffect(()=>{
         setSorting(['first_name', 'last_name', 'company_name', 'city', 'state', 'zip', 'email','web', 'id'].reduce((agg, curr)=>({...agg, [curr] : null}), {}))
