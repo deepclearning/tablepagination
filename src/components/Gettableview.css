@@ -4,6 +4,7 @@
     border-radius: 4px;
     border: 1px solid rgba(83, 79, 79, 0.329);
     overflow: auto;
+    margin-bottom: 20px;
 }
 
 .user-table tr{
@@ -35,3 +36,34 @@
 .user-table tr:nth-child(even){
     background:rgba(111, 88, 88, 0.11);
 }
+
+.user-table th.unsorted, .user-table th.asc, .user-table th.desc{
+    position: relative;
+}
+
+.user-table th.unsorted:after, .user-table th.asc:after, .user-table th.desc:after{
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 0;
+    display: block;
+    height: 18px;
+    width: 18px;
+}
+
+.user-table th.unsorted:after{
+    background: url('../assets/unsorted.svg');
+}
+
+.user-table th.asc:after{
+    background: url('../assets/arrow-solid-right.svg');
+    transform: rotate(90deg);
+    background-size: 18px 18px;
+}
+
+.user-table th.desc:after{
+    background: url('../assets/arrow-solid-right.svg');
+    transform: rotate(-90deg);
+    background-size: 18px 18px;
+}
+
