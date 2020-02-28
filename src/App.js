@@ -12,6 +12,7 @@ function App() {
         <NavLink activeClassName="active" to="/contacts">Datapeace</NavLink>
       </header>
       </BrowserRouter>
+      
       <Gettableview/>
     </div>
   );
