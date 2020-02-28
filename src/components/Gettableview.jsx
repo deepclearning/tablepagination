@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import users from "../data/users.js";
+import './Gettableview.css'
 
 class Gettableview extends Component {
     constructor(props){
@@ -25,7 +26,7 @@ class Gettableview extends Component {
         const {users} = this.state;
 
         return (
-            <table>
+            <table className="user-table" cellPadding="0" cellSpacing="0">
                 <thead>
                     <tr>
                     <th onClick={e=>this.onSort(e,"first_name")}>First Name</th>
@@ -41,16 +42,17 @@ class Gettableview extends Component {
                 </thead>
 
                 <tbody>
-                    {users.map( user => <tr key={user.id}>
-                        <td>{user.first_name} </td>
-                        <td>{user.last_name} </td>
-                        <td>{user.company_name} </td>
-                        <td>{user.city} </td>
-                        <td>{user.state} </td>
-                        <td>{user.zip} </td>
-                        <td>{user.email} </td>
-                        <td>{user.web} </td>
-                        <td>{user.id} </td>
+                    {users.map(({first_name, last_name, company_name, city, state, zip, email, web, id})=> 
+                    <tr key={id}>
+                        <td>{first_name} </td>
+                        <td>{last_name} </td>
+                        <td>{company_name} </td>
+                        <td>{city} </td>
+                        <td>{state} </td>
+                        <td>{zip} </td>
+                        <td>{email} </td>
+                        <td>{web} </td>
+                        <td>{id} </td>
                     </tr>)}
                 </tbody>
             </table>
