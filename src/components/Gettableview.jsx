@@ -14,7 +14,7 @@ export default function(){
     },[])
 
     useEffect(() => {
-        setUsers(userData.slice((currentPage-1)*pageSize, currentPage*pageSize))
+        setUsers(userData.slice((currentPage-1)*pageSize, currentPage*pageSize));
     }, [currentPage])
 
     function onSort(event, sortKey){
